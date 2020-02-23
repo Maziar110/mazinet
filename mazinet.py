@@ -84,17 +84,16 @@ def dns_resolve(indata):
 
 
 def route(indata):
-
     # Trace Route
     try:
         print("\nTrace routing is processing... \n")
-        tr_res = subprocess.run(['traceroute', indata],stdout=PIPE,universal_newlines=True, bufsize=1)
+        tr_res = subprocess.run(['traceroute', indata], stdout=PIPE, universal_newlines=True, bufsize=1)
         output = str(tr_res).split('\\n')
         logfile.write("\nTrace Route:\n")
 
         for line in output:
             print(line)
-            logfile.write(str("\n"+line))
+            logfile.write(str("\n" + line))
 
 
 
@@ -110,40 +109,53 @@ def who_is(indata):
     try:
         obj = IPWhois(ip)
         res = obj.lookup_rdap()
-        print("\nWhois result is: \n","Country: ", res['network']['country'])
+        print("\nWhois result for host ", indata, " is: \n", "Country: ", res['network']['country'])
         print("Provider: ", res['network']['name'], "\n IP range: " + res['network']['handle'])
-        log = "Whois result is: \n" + "Country: " + res['network']['country'] + "\nProvider: " + res['network']['name']\
+        log = "\n Whois result for host " + indata + " is: \n" + "Country: " + res['network']['country'] + "\nProvider: "\
+              + res['network']['name'] \
               + "\n IP range: " + res['network']['handle'] + "\n"
         logfile.write(log)
     except Exception as e:
         print("We face and error:  ", e)
+    return ip
+
+
+def who_are(indata):
+    file_location = str(indata)
+    file = open(file_location, "r")
+    lines = file.readlines()
+    for line in lines:
+        ip_detail = who_is(line)
+        print(ip_detail)
 
 
 arg = sys.argv
-indata = arg[(len(arg)-1)]
+indata = arg[(len(arg) - 1)]
 url = url_checker(indata)
-
 
 # Start Logfile
 try:
     logfile = open("/var/log/mazinet.log", "a")
     logtime = datetime.now()
-    log_header = "\n" + str(logtime) + "\n" + "Investigated Host: " + indata
+    log_header = "\n\n" + str(logtime) + "\n" + "Investigated Host: " + indata
     logfile.write(str(log_header))
 
 except Exception as e:
     print("Error while creating log file: ", e)
 
-
-
-if arg[1] =="trace":
-    route(indata)
-    logfile.close()
-elif arg[1] == "all":
-
+if arg[1] == "all":
     resp_time(url)
     icmp_checker(indata)
     dns_resolve(indata)
     route(indata)
     who_is(indata)
     logfile.close()
+
+elif arg[1] == "trace":
+    route(indata)
+    logfile.close()
+elif arg[1] == "whois":
+    who_is(indata)
+    logfile.close()
+elif arg[1] == "whoare":
+    who_are(indata)

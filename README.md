@@ -43,6 +43,7 @@ This command runs whois on a number of IP addresses which you have entered in a 
 
 This command runs whois only on the entered host(if you enter a domain, it would try to get the IP but there might be some issues specially when the domain is behind clouds, firewalls or etc)
 
+**Plus seeing the result of command in terminal, it also will be write down on a logfile in: `/var/log/mazinet.log`**
 ____
 
 if you had any question, we can be in touch via:
