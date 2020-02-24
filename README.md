@@ -1,5 +1,5 @@
 # What is this app:
-**MaziNet** is an app which is supposed to make your network investigate jobs easier.
+**MaziNet** is an app which is supposed to make your network investigation jobs easier.
 
 This app has some built-in tools that provides below tests on the host you enter:
 
@@ -14,7 +14,7 @@ you need just to run installer bash script:
 or
 `bash ./installer.sh`
 
-_ Make sure you are in the directory of project while installation _
+**_Make sure you are in the directory of project while installation_**
 
 After you installed the app, it makes a shortcut on `/usr/bin` directory which lets you use the app without specifying python extention or other commands you might need to run a python program.
 
@@ -44,6 +44,8 @@ This command runs whois on a number of IP addresses which you have entered in a 
 This command runs whois only on the entered host(if you enter a domain, it would try to get the IP but there might be some issues specially when the domain is behind clouds, firewalls or etc)
 
 **Plus seeing the result of command in terminal, it also will be write down on a logfile in: `/var/log/mazinet.log`**
+
+_this app is tested on ubuntu 18.04_
 ____
 
 if you had any question, we can be in touch via:
