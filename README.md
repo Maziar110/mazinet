@@ -37,6 +37,8 @@ This command only runs `traceroute` test on the entered host.
 
 **`sudo mazinet whoare <filename>`** :
 
+eg. sudo mazinet whoare /home/yourprettyhostname/filename
+
 This command runs whois on a number of IP addresses which you have entered in a file (each IP in one line)
 
 **`sudo mazinet whois <IP address>`** :
