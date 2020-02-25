@@ -14,7 +14,7 @@ you need just to run installer bash script:
 or
 `bash ./installer.sh`
 
-**_Make sure you are in the directory of project while installation_**
+**_Make sure you are in the directory of project while installation and after installation, never remove anything in this directory_**
 
 After you installed the app, it makes a shortcut on `/usr/bin` directory which lets you use the app without specifying python extention or other commands you might need to run a python program.
 
@@ -52,6 +52,8 @@ This command runs whois only on the entered host(if you enter a domain, it would
 **Plus seeing the result of command in terminal, it also will be written down on a logfile in: `/var/log/mazinet.log`**
 
 _this app is tested on ubuntu 18.04_
+
+**_To Update this app you need just head to the directory you had cloned the project first and then pull it again_**
 ____
 
 if you had any question, we can be in touch via:
