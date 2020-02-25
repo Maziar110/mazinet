@@ -51,8 +51,8 @@ def resp_time(url):
     try:
         res = req.get(url=url, timeout=6)
         restime = res.elapsed.total_seconds()
-        print("Response time is: ", restime, "\n")
-        logfile.write("\nResponse time: \n")
+        print("Response time is: ", restime, " Second","\n")
+        logfile.write("\nResponse time(in Second): \n")
         logfile.write(str(restime))
 
     except Exception as e:
@@ -159,3 +159,7 @@ elif arg[1] == "whois":
     logfile.close()
 elif arg[1] == "whoare":
     who_are(indata)
+    logfile.close()
+elif arg[1] == "resp":
+    resp_time(url)
+    logfile.close()
