@@ -31,6 +31,9 @@ or
 
 mazinet all 192.168.1.1 (test with IP)
 
+**`sudo mazinet resp <host>`** :
+This command only measures response time of the host.
+
 **`sudo mazinet trace <host>`** :
 
 This command only runs `traceroute` test on the entered host.
